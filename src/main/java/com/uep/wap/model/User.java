@@ -7,7 +7,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firts_name;
+    private String first_name;
     private String last_name;
     private String email;
 
@@ -15,18 +15,18 @@ public class User {
     private Integer role_id;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Player player
+    private Player player;
     public Long getId() {
         return id;
     }
     public void setId(Long id){
         this.id = id;
     }
-    public String getFirts_name() {
-        return firts_name;
+    public String getFirst_name() {
+        return first_name;
     }
-    public void setFirts_name(String firts_name) {
-        this.firts_name = firts_name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
     public String getLast_name() {
         return last_name;

@@ -1,13 +1,7 @@
-package com.uep.wap.model;
-import java.util.*;
-import javax.persistence.*;
-import java.time.DateTimeException;
-import java.util.Date;
+package com.uep.wap.dto;
 
-@Entity
-public class Tournament {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import java.util.Date;
+public class TournamentDTO {
     private Long id;
     private String name;
     private String city;
@@ -17,9 +11,6 @@ public class Tournament {
     private int maxPlayers;
     private int minPlayers;
     private Long gameAdminId;
-    @OneToMany(mappedBy = "tournament")
-    private Set<TournamentPlayer> tournamentPlayers;
-
     //getters and setters
     public Long getId() {
         return id;
@@ -69,21 +60,4 @@ public int getMinPlayers() {
     public void setMinPlayers(int minPlayers){
         this.minPlayers = minPlayers;
     }
-public Long getGameAdminId() {
-        return gameAdminId;
-    }
-    public void setGameAdminId(Long gameAdminId){
-        this.gameAdminId = gameAdminId;
-    }
-public Set<TournamentPlayer> getTournamentPlayers() {
-        return tournamentPlayers;
-    }
-    public void setTournamentPlayers(Set<TournamentPlayer> tournamentPlayers){
-        this.tournamentPlayers = tournamentPlayers;
-    }
-
-
-
-
-
 }

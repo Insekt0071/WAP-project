@@ -1,63 +1,73 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String User_name;
-    private String Club_name;
-    private Integer Elo;
-    private Integer Wins;
-    private Integer Loses;
-    private Integer Draws;
+    private String clubName;
+    private int elo;
+    private int matchesWon;
+    private int matchesLost;
+    private int matchesDraw;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    @OneToMany(mappedBy = "player")
+    private Set<TournamentPlayer> tournamentPlayers;
+
+    //getters and setters
     public Long getId() {
         return id;
     }
     public void setId(Long id){
         this.id = id;
     }
-    public String getUser_name() {
-        return User_name;
+    public String getClubName() {
+        return clubName;
     }
-    public void setUser_name(String User_name) {
-        this.User_name = User_name;
+    public void setClubName(String clubName){
+        this.clubName = clubName;
     }
-    public String getClub_name() {
-        return Club_name;
+    public int getElo() {
+        return elo;
     }
-    public void setClub_name(String Club_name){
-        this.Club_name = Club_name;
+    public void setElo(int elo){
+        this.elo = elo;
     }
-    public Integer getElo() {
-        return Elo;
+    public int getMatchesWon() {
+        return matchesWon;
     }
-    public void setElo(Integer Elo){
-        this.Elo = Elo;
+    public void setMatchesWon(int matchesWon){
+        this.matchesWon = matchesWon;
     }
-    public Integer getWins() {
-        return Wins;
+    public int getMatchesLost() {
+        return matchesLost;
     }
-    public void setWins(Integer Wins){
-        this.Wins = Wins;
+    public void setMatchesLost(int matchesLost){
+        this.matchesLost = matchesLost;
     }
-    public Integer getLoses() {
-        return Loses;
+    public int getMatchesDraw() {
+        return matchesDraw;
     }
-    public void setLoses(Integer Loses){
-        this.Loses = Loses;
+    public void setMatchesDraw(int matchesDraw){
+        this.matchesDraw = matchesDraw;
     }
-    public Integer getDraws() {
-        return Draws;
+    public User getUser() {
+        return user;
     }
-    public void setDraws(Integer Draws){
-        this.Draws = Draws;
+    public void setUser(User user){
+        this.user = user;
+    }
+    public Set<TournamentPlayer> getTournamentPlayers() {
+        return tournamentPlayers;
+    }
+    public void setTournamentPlayers(Set<TournamentPlayer> tournamentPlayers){
+        this.tournamentPlayers = tournamentPlayers;
     }
 }

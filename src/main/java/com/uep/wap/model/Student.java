@@ -12,6 +12,11 @@ public class Student{
     private String name;
     @Column(name ="points")
     private Integer points;
+
+    public Student() {
+
+    }
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     public void setId(long id){
@@ -20,9 +25,7 @@ public class Student{
     public long getId(){
         return id;
     }
-    public Student(){
 
-    }
 
     public String getName() {
         return name;
