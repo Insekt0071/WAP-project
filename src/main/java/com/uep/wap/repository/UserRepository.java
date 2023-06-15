@@ -6,4 +6,9 @@ import com.uep.wap.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     // additional custom queries can be defined here
+    //add user
+    //delete user
+    //update user
+
+
 }

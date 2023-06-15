@@ -15,9 +15,6 @@
     <description>wap</description>
     <properties>
         <java.version>17</java.version>
-        <server>150.254.36.243</server>
-        <database>ait124221</database>
-        <port>@8080</port>
     </properties>
 
     <dependencies>
