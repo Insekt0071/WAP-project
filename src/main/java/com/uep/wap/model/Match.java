@@ -2,8 +2,6 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 @Entity
-
-
 public class Match  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
