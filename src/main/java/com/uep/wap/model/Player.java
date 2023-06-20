@@ -14,6 +14,9 @@ public class Player {
     private int matchesLost;
     private int matchesDraw;
 
+    @ManyToOne
+    @JoinColumn(name = "match_id", referencedColumnName = "id")
+    private Match match;
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

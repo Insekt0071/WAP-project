@@ -1,29 +1,40 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+
+
 @Entity
-public class Match  {
+@Table(name = "matches")
+public class Match {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name="player1_id", nullable=false)
-    private Player player1;
-    @ManyToOne
-    @JoinColumn(name="player2_id", nullable=false)
-    private Player player2;
-    private String algerbaicNotation;
-    private Long arbiterId;
+    private String Alg_notation;
 
     @ManyToOne
-    @JoinColumn(name="tournament_id", nullable=false)
+    @JoinColumn(name = "tournament_id")
     private Tournament tournament;
+
+    @ManyToOne
+    @JoinColumn(name = "player1_id")
+    private Player player1;
+
+    @ManyToOne
+    @JoinColumn(name = "player2_id")
+    private Player player2;
     //getters and setters
     public Long getId() {
         return id;
     }
     public void setId(Long id){
         this.id = id;
+    }
+    public Tournament getTournament() {
+        return tournament;
+    }
+    public void setTournament(Tournament tournament){
+        this.tournament = tournament;
     }
     public Player getPlayer1() {
         return player1;
@@ -37,24 +48,11 @@ public class Match  {
     public void setPlayer2(Player player2){
         this.player2 = player2;
     }
-    public String getAlgerbaicNotation() {
-        return algerbaicNotation;
+    public String getAlg_notation() {
+        return Alg_notation;
     }
-    public void setAlgerbaicNotation(String algerbaicNotation){
-        this.algerbaicNotation = algerbaicNotation;
+    public void setAlg_notation(String Alg_notation){
+        this.Alg_notation = Alg_notation;
     }
-    public Long getArbiterId() {
-        return arbiterId;
-    }
-    public void setArbiterId(Long arbiterId){
-        this.arbiterId = arbiterId;
-    }
-    public Tournament getTournament() {
-        return tournament;
-    }
-    public void setTournament(Tournament tournament){
-        this.tournament = tournament;
-    }
-
 
 }

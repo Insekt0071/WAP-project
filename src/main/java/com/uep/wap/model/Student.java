@@ -13,9 +13,10 @@ public class Student{
     @Column(name ="points")
     private Integer points;
 
-    public Student() {
+    public Student( ) {
 
     }
+
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 

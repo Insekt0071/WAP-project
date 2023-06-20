@@ -1,10 +1,8 @@
 package com.uep.wap.repository;
-
 import com.uep.wap.model.Match;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface MatchRepository extends CrudRepository<Match, Long> {
-    // additional custom queries can be defined here
+public interface MatchRepository extends JpaRepository<Match, Integer> {
+    // You can add custom query methods here if needed
 }
+
