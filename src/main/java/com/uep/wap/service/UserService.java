@@ -15,11 +15,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // Create a new user or update an existing user
-    public User saveUser(User user) {
+    // Create a new user
+    public User createUser(User user) {
         return userRepository.save(user);
     }
-
     // Retrieve a user by their ID
     public User getUser(Long id) {
         return userRepository.findById(id).orElse(null);
@@ -33,6 +32,19 @@ public class UserService {
     // Delete a user
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+    // Update an existing user
+    public User updateUser(Long id, User userDetails) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null) {
+            user.setFirst_name(userDetails.getFirst_name());
+            user.setLast_name(userDetails.getLast_name());
+            user.setEmail(userDetails.getEmail());
+            user.setPassword(userDetails.getPassword());
+            // add any other fields that you want to update
+            userRepository.save(user);
+        }
+        return user;
     }
 }
 

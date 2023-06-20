@@ -17,10 +17,21 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Endpoint to create a new user or update an existing user
+    // Endpoint to create a new user
     @PostMapping
-    public User saveUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    // Endpoint to update an existing user
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
+        User updatedUser = userService.updateUser(id, userDetails);
+        if (updatedUser == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(updatedUser);
+        }
     }
 
     // Endpoint to retrieve a user by their ID
