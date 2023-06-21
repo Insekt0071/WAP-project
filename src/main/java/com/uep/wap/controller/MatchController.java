@@ -6,7 +6,7 @@ import com.uep.wap.model.Match;
 import com.uep.wap.service.MatchService;
 
 @RestController
-@RequestMapping("/matches")
+@RequestMapping("api/matches")
 public class MatchController {
     private final MatchService matchService;
 
@@ -19,7 +19,7 @@ public class MatchController {
         return matchService.saveMatch(match);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("api/{id}")
     public ResponseEntity<Match> updateMatch(@PathVariable Long id, @RequestBody Match matchDetails) {
         Match match = matchService.getMatch(id);
         if (match == null) {
