@@ -21,6 +21,7 @@ public class Player {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+
     @OneToMany(mappedBy = "player")
     private Set<TournamentPlayer> tournamentPlayers;
 

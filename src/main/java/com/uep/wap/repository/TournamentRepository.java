@@ -1,11 +1,11 @@
 package com.uep.wap.repository;
 
-import com.uep.wap.model.Tournament;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import com.uep.wap.model.Tournament;
 
 @Repository
-public interface TournamentRepository extends CrudRepository<Tournament, Long> {
-    // additional custom queries can be defined here
+public interface TournamentRepository extends JpaRepository<Tournament, Long> {
 }
+
 

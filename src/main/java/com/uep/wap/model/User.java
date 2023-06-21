@@ -13,7 +13,6 @@ public class User {
 
     private String password;
     private Integer role_id;
-
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Player player;
     public Long getId() {

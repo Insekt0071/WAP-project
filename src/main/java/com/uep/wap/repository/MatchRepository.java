@@ -1,8 +1,10 @@
 package com.uep.wap.repository;
-import com.uep.wap.model.Match;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.uep.wap.model.Match;
 
-public interface MatchRepository extends JpaRepository<Match, Integer> {
-    // You can add custom query methods here if needed
+@Repository
+public interface MatchRepository extends JpaRepository<Match, Long> {
 }
+
 

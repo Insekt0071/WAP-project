@@ -1,7 +1,6 @@
 package com.uep.wap.model;
 import java.util.*;
 import javax.persistence.*;
-import java.time.DateTimeException;
 import java.util.Date;
 
 @Entity
@@ -17,8 +16,17 @@ public class Tournament {
     private int maxPlayers;
     private int minPlayers;
     private Long gameAdminId;
-    @OneToMany(mappedBy = "tournament")
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
     private Set<TournamentPlayer> tournamentPlayers;
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
+    private Set<Match> matches;
+
+    public Set<Match> getMatches() {
+        return matches;
+    }
+    public void setMatches(Set<Match> matches){
+        this.matches = matches;
+    }
 
     //getters and setters
     public Long getId() {
