@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import com.uep.wap.model.Tournament;
 import com.uep.wap.service.TournamentService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tournaments")
 public class TournamentController {
@@ -17,6 +19,21 @@ public class TournamentController {
     @PostMapping
     public Tournament createTournament(@RequestBody Tournament tournament) {
         return tournamentService.saveTournament(tournament);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Tournament> getTournament(@PathVariable Long id) {
+        Tournament tournament = tournamentService.getTournament(id);
+        if (tournament == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(tournament);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Tournament>> getAllTournaments() {
+        List<Tournament> tournaments = tournamentService.getAllTournaments();
+        return ResponseEntity.ok(tournaments);
     }
 
     @PutMapping("/{id}")
@@ -37,6 +54,10 @@ public class TournamentController {
         return ResponseEntity.ok(updatedTournament);
     }
 
-    // Add other endpoints as needed...
-}
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTournament(@PathVariable Long id) {
+        tournamentService.deleteTournament(id);
+        return ResponseEntity.noContent().build();
+    }
 
+}

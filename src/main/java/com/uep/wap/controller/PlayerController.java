@@ -37,11 +37,9 @@ public class PlayerController {
         player.setMatchesWon(playerDetails.getMatchesWon());
         player.setMatchesLost(playerDetails.getMatchesLost());
         player.setMatchesDraw(playerDetails.getMatchesDraw());
-        // Add any other fields that you want to update
         Player updatedPlayer = playerService.savePlayer(player);
         return ResponseEntity.ok(updatedPlayer);
     }
 
-    // Add other endpoints as needed
 
 }

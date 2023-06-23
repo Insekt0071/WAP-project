@@ -33,6 +33,5 @@ public class MatchController {
         return ResponseEntity.ok(updatedMatch);
     }
 
-    // Add other endpoints as needed...
 }
 
