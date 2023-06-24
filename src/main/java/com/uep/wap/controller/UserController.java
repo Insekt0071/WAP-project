@@ -17,13 +17,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Endpoint to create a new user
+
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    // Endpoint to update an existing user
+
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         User updatedUser = userService.updateUser(id, userDetails);
@@ -34,7 +34,6 @@ public class UserController {
         }
     }
 
-    // Endpoint to retrieve a user by their ID
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         User user = userService.getUser(id);
@@ -45,13 +44,13 @@ public class UserController {
         }
     }
 
-    // Endpoint to retrieve all users
+
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    // Endpoint to delete a user
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
